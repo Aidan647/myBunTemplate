@@ -36,5 +36,6 @@
 			"approve": true,
 			"matchCommandLine": true
 		}
-	}
+	},
+	"js/ts.tsdk.path": "node_modules/typescript/lib"
 }
