@@ -13,10 +13,26 @@
 
 - Ask clarifying questions; correct when wrong
 - Don't guess large scopes; supply exact file paths
-- Follow lints; prefer small, reversible commits
+- Treat lint as a suggestion, not a hard fail; prefer small, reversible commits
 - Keep answers minimal unless detail requested
 - Explicit constraints: Bun, TypeScript, ESM
 - Avoid try-catch; prefer `await promise.catch(() => fallback)`
+
+## Commands
+
+Use these exact commands, one at a time. Never chain them (`&&`, `;`, `|`) and never add redirection or flags (`2>$`, `2>&1`, `--watch`, etc.).
+
+- `bun start` — run the app
+- `bun test` — run tests
+- `bun check` — typecheck
+- `bun fmt` — format
+- `bun lint` — lint (advisory only; report findings, do not block on them)
+
+Run each as its own command and wait for it to finish before running the next.
+
+Commands with arguments (e.g. `bun test path/to/file.test.ts`) are allowed but require user approval. Do not use them unless necessary; prefer the bare command above.
+
+If a command should be commonly executed, add its exact pattern (e.g. `"/^bun test$/"`) to `chat.tools.terminal.autoApprove` in `.vscode/settings.json` so it runs without prompting.
 
 ## How to work (high-level mindset) *(from CLAUDE.md)*
 
@@ -90,7 +106,7 @@ Preferred order: (1) native Bun APIs, (2) lightweight ESM libs (e.g., `undici`, 
 
 Reuse existing tools when available. Update relevant README when adding tools. Include `package.json` diff and install command for new deps.
 
-Use `bun typecheck` and `bun format` to check types and format before running tests with `bun test`.
+Run `bun check` and `bun fmt` before `bun test`, each as a separate command. `bun lint` is advisory: report its findings but do not treat them as a hard failure.
 
 ## Tech choice — vanilla by default *(from CLAUDE.md)*
 

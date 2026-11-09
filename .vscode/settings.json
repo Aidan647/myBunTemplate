@@ -8,34 +8,18 @@
 			"approve": true,
 			"matchCommandLine": true
 		},
-		"/^bun run test$/": {
+		"/^bun check$/": {
 			"approve": true,
 			"matchCommandLine": true
 		},
-		"/^bun typecheck$/": {
+		"/^bun fmt$/": {
 			"approve": true,
 			"matchCommandLine": true
 		},
-		"/^bun run typecheck$/": {
+		"/^bun lint$/": {
 			"approve": true,
 			"matchCommandLine": true
 		},
-		"/^bunx tsc --noEmit$/": {
-			"approve": true,
-			"matchCommandLine": true
-		},
-		"/^bun format$/": {
-			"approve": true,
-			"matchCommandLine": true
-		},
-		"/^bun run format$/": {
-			"approve": true,
-			"matchCommandLine": true
-		},
-		"/^prettier --write \\.$/": {
-			"approve": true,
-			"matchCommandLine": true
-		}
 	},
 	"js/ts.tsdk.path": "node_modules/typescript/lib"
 }

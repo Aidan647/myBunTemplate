@@ -1,0 +1,47 @@
+[install]
+# Only install package versions published at least 3 days ago
+minimumReleaseAge = 259200
+
+[run]
+bun = true
+
+[fmt]
+sortPackageJson = true
+jsdoc = true
+printWidth = 120
+useTabs = true
+tabWidth = 4
+semi = false
+singleQuote = false
+jsxSingleQuote = true
+trailingComma = "all"
+bracketSpacing = true
+arrowParens = "always"
+quoteProps = "as-needed"
+endOfLine = "lf"
+ignorePatterns = [
+	"node_modules/",
+	"dist/",
+	"build/",
+	"coverage/",
+	".git/",
+	".vscode/",
+	".idea/",
+	".DS_Store/",
+	".github/",
+	"out/",
+]
+
+[[fmt.overrides]]
+files = ["package.json", "package-lock.json"]
+options = { tabWidth = 2, useTabs = false, trailingComma = "none" }
+
+[[fmt.overrides]]
+files = ["*.md"]
+options = { printWidth = 9999 }
+
+[fmt.sortImports]
+groups = ["builtin", "external", ["internal", "subpath"], ["parent", "sibling", "index"], "style", "unknown"]
+internalPattern = ["~/", "@/", "#"]
+
+
